@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block main%}
+
+{% csrf_token %}
+
+<form action="POST">
+<div class="field">
+    {{ form.tagid.errors }}
+    <label for="{{ form.tagid.id_for_label }}">Tag id:</label>
+    <div class="control">
+    {{ form.tagid }}
+    </div>
+</div>
+<p class="subtitle">Track/playlist Info</p>
+<div class="field">
+    {{ form.name.errors }}
+    <label for="{{ form.name.id_for_label }}">Name:</label>
+    <div class="control">
+    {{ form.name }}
+    </div>
+</div>
+<div class="field">
+    {{ form.uri.errors }}
+    <label for="{{ form.uri.id_for_label }}">URI:</label>
+    <div class="control">
+    {{ form.uri }}
+    </div>
+</div>
+<div class="field">
+    {{ form.volume.errors }}
+    <label for="{{ form.volume.id_for_label }}">Volume:</label>
+    <div class="control">
+    {{ form.volume }}
+    </div>
+</div>
+<div class="field">
+    {{ form.source.errors }}
+    <label for="{{ form.source.id_for_label }}">Source:</label>
+    <div class="control">
+    {{ form.source }}
+    </div>
+</div>
+<input type="submit" value="Add Tag" class="button"/>
+</form
+{% endblock %}

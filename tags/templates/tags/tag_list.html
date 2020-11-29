@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block main%}
+<p class="subtitle">
+  Tags
+</p>
+<table class="table">
+{% for tag in object_list %}
+<tr>
+  <td>
+     {{tag.name}}
+   </td>
+   <td>
+  <a href="{% url 'tag-update' tag.id %}" class="button is-primary">Update</a>
+  </td>
+  <td>
+    <a href="{% url 'tag-delete' tag.id %}" class="button is-danger">Delete</a>
+  </td>
+</tr>
+{% empty%}
+<tr>
+  <td colspan=3>
+    No tags <a href="{% url 'tag-add' %}" class="button is-primary">Add a new tag?</a>
+  </td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

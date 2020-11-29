@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from tags.views import TagCreate, TagUpdate, TagDelete,  TagList
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', TagList.as_view(), name='tag-list'),
+    path('tag/add/', TagCreate.as_view(), name='tag-add'),
+    path('tag/<int:pk>/', TagUpdate.as_view(), name='tag-update'),
+    path('tag/<int:pk>/delete/', TagDelete.as_view(), name='tag-delete'),
 ]
